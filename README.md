@@ -10,7 +10,7 @@ A fim de testar a funcao, basta especificar algum file descriptor no arquivo `ma
 int	main(void)
 {
 	// Especificar o nome do arquivo ("file1" Por exemplo)
-	int	fd = open("file1", O_RDONLY);
+	int	fd = open("test", O_RDONLY);
 	printf("%s", get_next_line(fd)); // foo
 	printf("%s", get_next_line(fd)); // bar
 	printf("%s", get_next_line(fd)); // 
