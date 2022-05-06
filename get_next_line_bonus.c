@@ -6,11 +6,11 @@
 /*   By: frosa-ma <frosa-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:51:36 by frosa-ma          #+#    #+#             */
-/*   Updated: 2022/05/05 17:05:31 by frosa-ma         ###   ########.fr       */
+/*   Updated: 2022/05/06 18:17:16 by frosa-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strjoin(char *acc, char *buff)
 {
@@ -99,10 +99,10 @@ char	*ft_setacc(char *acc)
 
 char	*get_next_line(int fd)
 {
-	static char	*acc[1024];
+	static char	*acc[257];
 	char		*line;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 1024)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 256)
 		return (NULL);
 	acc[fd] = ft_wtoacc(acc[fd], fd);
 	if (!acc[fd])

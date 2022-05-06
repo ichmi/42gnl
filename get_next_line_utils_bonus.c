@@ -6,11 +6,11 @@
 /*   By: frosa-ma <frosa-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:49:34 by frosa-ma          #+#    #+#             */
-/*   Updated: 2022/05/05 17:00:51 by frosa-ma         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:48:30 by frosa-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {

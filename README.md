@@ -11,10 +11,14 @@ int	main(void)
 {
 	// Especificar o nome do arquivo ("file1" Por exemplo)
 	int	fd = open("file1", O_RDONLY);
-	printf("%s", get_next_line(fd)); // foo
-	printf("%s", get_next_line(fd)); // bar
-	printf("%s", get_next_line(fd)); // 
-	printf("%s", get_next_line(fd)); // baz
+	char *p = get_next_line(fd);
+	while (p)
+	{
+		printf("%s", p);
+		free(p);
+		p = get_next_line(fd);
+	}
+	free(p);
 	close(fd);
 	return (0);
 }
