@@ -6,7 +6,7 @@
 /*   By: frosa-ma <frosa-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:51:36 by frosa-ma          #+#    #+#             */
-/*   Updated: 2022/05/06 18:17:16 by frosa-ma         ###   ########.fr       */
+/*   Updated: 2022/05/06 20:59:05 by frosa-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ char	*ft_getline(char *acc)
 	while (acc[i] && acc[i] != '\n')
 		i++;
 	line = (char *)malloc((i + 2) * sizeof(char));
+	if (!line)
+		return (NULL);
 	ft_memset(line, 0, i + 2);
 	ft_memcpy(line, acc, i + 1);
 	return (line);
@@ -81,6 +83,11 @@ char	*ft_setacc(char *acc)
 	int		i;
 	int		j;
 
+	if (!*acc)
+	{
+		free(acc);
+		return (NULL);
+	}
 	i = 0;
 	while (acc[i] && acc[i] != '\n')
 		i++;
@@ -99,15 +106,20 @@ char	*ft_setacc(char *acc)
 
 char	*get_next_line(int fd)
 {
-	static char	*acc[257];
+	static char	*acc[OPEN_MAX + 1];
 	char		*line;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 256)
+	if (BUFFER_SIZE <= 0 || fd < 0 || fd > OPEN_MAX)
 		return (NULL);
 	acc[fd] = ft_wtoacc(acc[fd], fd);
 	if (!acc[fd])
 		return (NULL);
 	line = ft_getline(acc[fd]);
+	if (!line)
+	{
+		free(acc[fd]);
+		return (NULL);
+	}
 	acc[fd] = ft_setacc(acc[fd]);
 	return (line);
 }
