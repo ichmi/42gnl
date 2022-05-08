@@ -6,7 +6,7 @@
 /*   By: frosa-ma <frosa-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:51:36 by frosa-ma          #+#    #+#             */
-/*   Updated: 2022/05/06 20:52:57 by frosa-ma         ###   ########.fr       */
+/*   Updated: 2022/05/07 15:05:38 by frosa-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,18 @@ char	*ft_getline(char *acc)
 	i = 0;
 	while (acc[i] && acc[i] != '\n')
 		i++;
-	line = (char *)malloc((i + 2) * sizeof(char));
-	ft_memset(line, 0, i + 2);
-	ft_memcpy(line, acc, i + 1);
+	if (acc[i] == '\n')
+	{
+		line = (char *)malloc((i + 2) * sizeof(char));
+		ft_memset(line, 0, i + 2);
+		ft_memcpy(line, acc, i + 1);
+	}
+	else
+	{
+		line = (char *)malloc((i + 1) * sizeof(char));
+		ft_memset(line, 0, i + 1);
+		ft_memcpy(line, acc, i);
+	}
 	return (line);
 }
 
