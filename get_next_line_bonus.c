@@ -6,7 +6,7 @@
 /*   By: frosa-ma <frosa-ma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:51:36 by frosa-ma          #+#    #+#             */
-/*   Updated: 2022/05/08 00:46:57 by frosa-ma         ###   ########.fr       */
+/*   Updated: 2022/05/10 19:07:27 by frosa-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ char	*ft_setacc(char *acc)
 	int		i;
 	int		j;
 
+	if (!*acc)
+	{
+		free(acc);
+		return (NULL);
+	}
 	i = 0;
 	while (acc[i] && acc[i] != '\n')
 		i++;
@@ -119,11 +124,6 @@ char	*get_next_line(int fd)
 	if (!acc[fd])
 		return (NULL);
 	line = ft_getline(acc[fd]);
-	if (!line)
-	{
-		free(acc[fd]);
-		return (NULL);
-	}
 	acc[fd] = ft_setacc(acc[fd]);
 	return (line);
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include "get_next_line.h"
+// #include "get_next_line_bonus.h"
 
 int main()
 {
@@ -23,7 +24,7 @@ int main()
 
 	// char	*p;
 
-	// for (int i=0; i < 3; i++)
+	// for (int i=0; i <= 5; i++)
 	// {
 	// 	p = get_next_line(fd1);
 	// 	printf("%s", p);
