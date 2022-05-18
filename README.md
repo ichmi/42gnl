@@ -1,4 +1,4 @@
-# 42gnl
+# gnl
 O projeto se baseia em programar uma funcao da qual retorne uma linha de um determinado _File Descriptor_. O projeto nos apresenta o conceito de Buffer, e tambem como podemos aplicar a tecnica atraves de variaveis estaticas (`static`).
 
 A fim de testar a funcao, basta especificar algum file descriptor no arquivo `main.c`, por exemplo:
